@@ -18,33 +18,45 @@ public class TimeHandler : MonoBehaviour
     {
         ChangeTime(1);
         ShowTime();
+
+        clockHandler.sendData("set_time", clockHandler.timeOffset.ToString());
     }
     public void TimeDown()
     {
         ChangeTime(-1);
         ShowTime();
+
+        clockHandler.sendData("set_time", clockHandler.timeOffset.ToString());
     }
 
     public void MinuteUp()
     {
         ChangeMinute(1);
         ShowTime();
+        clockHandler.sendData("set_time", clockHandler.timeOffset.ToString());
+
     }
     public void MinuteDown()
     {
         ChangeMinute(-1);
         ShowTime();
+
+        clockHandler.sendData("set_time", clockHandler.timeOffset.ToString());
     }
     public void MinuteUp10()
     {
         ChangeMinute(10);
         ShowTime();
+
+        clockHandler.sendData("set_time", clockHandler.timeOffset.ToString());
     }
 
     public void MinuteDown10()
     {
         ChangeMinute(-10);
         ShowTime();
+
+        clockHandler.sendData("set_time", clockHandler.timeOffset.ToString());
     }
 
     public void SetAM()
@@ -53,6 +65,8 @@ public class TimeHandler : MonoBehaviour
         {
             ChangeTime(-12);
             ShowTime();
+
+            clockHandler.sendData("set_time", clockHandler.timeOffset.ToString());
         }
     }
     public void SetPM()
@@ -61,6 +75,8 @@ public class TimeHandler : MonoBehaviour
         {
             ChangeTime(12);
             ShowTime();
+
+            clockHandler.sendData("set_time", clockHandler.timeOffset.ToString());
         }
     }
 
@@ -73,8 +89,6 @@ public class TimeHandler : MonoBehaviour
 
         clockHandler.timeOffset += (time - clockHandler.time) * 60 * 60;
         clockHandler.time = time;
-
-        clockHandler.sendData("set_time", clockHandler.timeOffset.ToString());
     }
 
     private void ChangeMinute(int change)
@@ -93,8 +107,6 @@ public class TimeHandler : MonoBehaviour
         }
         clockHandler.timeOffset += (minute - clockHandler.minute) * 60;
         clockHandler.minute = minute;
-
-        clockHandler.sendData("set_time", clockHandler.timeOffset.ToString());
     }
 
     public void ToggleMode()

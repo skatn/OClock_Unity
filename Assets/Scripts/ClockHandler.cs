@@ -65,6 +65,13 @@ public class ClockHandler : MonoBehaviour
         if (www.error == null)
         {
             Debug.Log("WWW OK: " + www.text);
+            if (key.Equals("set_time"))
+            {
+                time = int.Parse(www.text) / 100;
+                minute = int.Parse(www.text) % 100;
+                ShowTime();
+                timeHandler.ShowTime();
+            }
         }
         else
         {
