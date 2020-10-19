@@ -88,6 +88,9 @@ public class TimeHandler : MonoBehaviour
         else if (time < 0) time = 23;
 
         clockHandler.timeOffset += (time - clockHandler.time) * 60 * 60;
+        if (clockHandler.timeOffset < 0) clockHandler.timeOffset += 86400;
+        else if (clockHandler.timeOffset > 86400) clockHandler.timeOffset -= 86400;
+
         clockHandler.time = time;
     }
 
@@ -106,6 +109,9 @@ public class TimeHandler : MonoBehaviour
             minute += 60;
         }
         clockHandler.timeOffset += (minute - clockHandler.minute) * 60;
+        if (clockHandler.timeOffset < 0) clockHandler.timeOffset += 86400;
+        else if (clockHandler.timeOffset > 86400) clockHandler.timeOffset -= 86400;
+
         clockHandler.minute = minute;
     }
 
